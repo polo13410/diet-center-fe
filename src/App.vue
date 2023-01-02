@@ -1,141 +1,46 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header
-      elevated
-      class="glossy"
-    >
+  <q-layout view="hHh lp-md lp-lg lp-xl">
+    <q-header elevated >
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          icon="fas fa-bars"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title>Dietetic Center</q-toolbar-title>
+        <nav class="site-nav">
+          <router-link to="/"> Connection</router-link> |
+          <router-link to="/home"> Home</router-link> |
+          <router-link to="/about"> About</router-link> |
+          <router-link to="/dashboard"> Dashboard </router-link>
+        </nav>
       </q-toolbar>
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      class="bg-grey-2"
-    >
-      <q-list>
-        <q-item-label header>
-          Essential Links
-        </q-item-label>
-        <q-item
-          clickable
-          tag="a"
-          target="_blank"
-          href="https://quasar.dev"
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-graduation-cap" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>
-              quasar.dev
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item
-          clickable
-          tag="a"
-          target="_blank"
-          href="https://github.com/quasarframework/"
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>
-              github.com/quasarframework
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item
-          clickable
-          tag="a"
-          target="_blank"
-          href="https://chat.quasar.dev"
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-comments" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>
-              chat.quasar.dev
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item
-          clickable
-          tag="a"
-          target="_blank"
-          href="https://forum.quasar.dev"
-        >
-          <q-item-section avatar>
-            <q-icon name="far fa-clipboard" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>
-              forum.quasar.dev
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item
-          clickable
-          tag="a"
-          target="_blank"
-          href="https://twitter.com/quasarframework"
-        >
-          <q-item-section avatar>
-            <q-icon name="fab fa-twitter" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>
-              @quasarframework
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
-      <HelloWorld />
+      <!-- main content goes here -->
+        <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
-<script>
-import { ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+<style lang="scss">
+body {
+  height: 100vh;
+}
 
-export default {
-  name: 'LayoutDefault',
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  height: 100%;
+}
 
-  components: {
-    HelloWorld
-  },
+.site-nav {
+  padding: 0px 30px;
 
-  setup () {
-    return {
-      leftDrawerOpen: ref(false)
+  a {
+    font-weight: bold;
+    color: #FFFFFF;
+
+    &.router-link-exact-active {
+      color: #ccd9ed;
     }
   }
 }
-</script>
+</style>
